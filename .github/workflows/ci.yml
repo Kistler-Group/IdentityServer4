@@ -33,7 +33,8 @@ jobs:
         ./build.ps1
         # dotnet nuget push .\nuget\*.nupkg -s ${{ secrets.NUGET_REPO_URL }} -k ${{ secrets.NUGET_REPO_API_KEY }}
 
-    - name: Release with Notes
+    - if: (matrix.runs-on == 'windows-latest') && (github.ref == 'refs/heads/main' || contains(github.ref, 'refs/tags/'))
+      name: Release with Notes
       uses: softprops/action-gh-release@v1
       with:
         files: |
