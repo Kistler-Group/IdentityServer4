@@ -1,4 +1,7 @@
-# Important update
+# .NET 6.0 Port of IdentityServer4
+Once a new tag is created, NuGet packages are automatically added to a release as an asset. Packages are to be uploaded manually to whathever package hosting server you please - Nexus, etc.
+
+## Important update from the original creators
 This project is not maintained anymore. This repo will be archived when .NET Core 3.1 end of support is reached (13th Dec 2022). All new development is happening in the new [Duende Software](https://github.com/duendesoftware) organization. 
 
 See [here](https://duendesoftware.com/products/identityserver) for more details.
