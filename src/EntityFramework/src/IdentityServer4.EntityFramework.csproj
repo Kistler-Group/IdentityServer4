@@ -24,6 +24,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <RepositoryUrl>https://github.com/Kistler-Group/IdentityServer4</RepositoryUrl>
     <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true'">True</ContinuousIntegrationBuild>
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">True</ContinuousIntegrationBuild>
   </PropertyGroup>
