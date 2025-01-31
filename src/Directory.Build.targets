@@ -1,9 +1,9 @@
 <Project>
 
   <PropertyGroup>
-    <FrameworkVersion>6.0.20</FrameworkVersion>
-    <ExtensionsVersion>6.0.20</ExtensionsVersion>
-    <EntityFrameworkVersion>6.0.20</EntityFrameworkVersion>
+    <FrameworkVersion>8.0.12</FrameworkVersion>
+    <ExtensionsVersion>8.0.12</ExtensionsVersion>
+    <EntityFrameworkVersion>8.0.12</EntityFrameworkVersion>
     
     <IdentityServerVersion>4.1.3-kistler.*</IdentityServerVersion>
   </PropertyGroup>
