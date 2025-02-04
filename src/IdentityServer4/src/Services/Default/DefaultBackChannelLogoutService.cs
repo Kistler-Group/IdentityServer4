@@ -27,7 +27,7 @@ namespace IdentityServer4.Services
         /// <summary>
         /// The system clock;
         /// </summary>
-        protected TimeProvider Clock { get; }
+        protected ISystemClock Clock { get; }
         
         /// <summary>
         /// The IdentityServerTools used to create and the JWT.
