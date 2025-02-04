@@ -480,7 +480,7 @@ namespace IdentityServer.IntegrationTests.Endpoints.Authorize
             var response = await _mockPipeline.BrowserClient.GetAsync(url);
 
             _mockPipeline.ErrorMessage.Error.Should().Be("invalid_request");
-            _mockPipeline.ErrorMessage.ErrorDescription.Should().Be("Invalid JWT request");
+            _mockPipeline.ErrorMessage.ErrorDescription.Should().Be("Parameter mismatch in JWT request");
             _mockPipeline.LoginRequest.Should().BeNull();
         }
 
