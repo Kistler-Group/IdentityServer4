@@ -21,7 +21,7 @@ namespace IdentityServer.UnitTests.Extensions
             IServiceCollection services = new ServiceCollection();
             IIdentityServerBuilder identityServerBuilder = new IdentityServerBuilder(services);
 
-            String json =
+            var json =
             @"{
                 ""alg"" : ""RS256"",
                 ""kty"" : ""RSA"",
@@ -47,7 +47,7 @@ namespace IdentityServer.UnitTests.Extensions
             IServiceCollection services = new ServiceCollection();
             IIdentityServerBuilder identityServerBuilder = new IdentityServerBuilder(services);
 
-            String json =
+            var json =
             @"{
                 ""alg"" : ""HS256"",
                 ""kty"" : ""oct"",
