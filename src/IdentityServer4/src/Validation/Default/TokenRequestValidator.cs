@@ -35,7 +35,6 @@ namespace IdentityServer4.Validation
         private readonly IResourceOwnerPasswordValidator _resourceOwnerValidator;
         private readonly IProfileService _profile;
         private readonly IDeviceCodeValidator _deviceCodeValidator;
-        private readonly ISystemClock _clock;
         private readonly ILogger _logger;
 
         private ValidatedTokenRequest _validatedRequest;
@@ -55,7 +54,6 @@ namespace IdentityServer4.Validation
         /// <param name="tokenValidator">The token validator.</param>
         /// <param name="refreshTokenService"></param>
         /// <param name="events">The events.</param>
-        /// <param name="clock">The clock.</param>
         /// <param name="logger">The logger.</param>
         public TokenRequestValidator(IdentityServerOptions options, 
             IAuthorizationCodeStore authorizationCodeStore, 
@@ -68,13 +66,11 @@ namespace IdentityServer4.Validation
             IResourceStore resourceStore,
             ITokenValidator tokenValidator, 
             IRefreshTokenService refreshTokenService,
-            IEventService events, 
-            ISystemClock clock, 
+            IEventService events,  
             ILogger<TokenRequestValidator> logger)
         {
             _logger = logger;
             _options = options;
-            _clock = clock;
             _authorizationCodeStore = authorizationCodeStore;
             _resourceOwnerValidator = resourceOwnerValidator;
             _profile = profile;
@@ -249,7 +245,7 @@ namespace IdentityServer4.Validation
             // todo: set to consumed in the future?
             await _authorizationCodeStore.RemoveAuthorizationCodeAsync(code);
 
-            if (authZcode.CreationTime.HasExceeded(authZcode.Lifetime, _clock.UtcNow.UtcDateTime))
+            if (authZcode.CreationTime.HasExceeded(authZcode.Lifetime, TimeProvider.GetUtcNow().UtcDateTime))
             {
                 LogError("Authorization code expired", new { code });
                 return Invalid(OidcConstants.TokenErrors.InvalidGrant);
@@ -266,7 +262,7 @@ namespace IdentityServer4.Validation
             /////////////////////////////////////////////
             // validate code expiration
             /////////////////////////////////////////////
-            if (authZcode.CreationTime.HasExceeded(_validatedRequest.Client.AuthorizationCodeLifetime, _clock.UtcNow.UtcDateTime))
+            if (authZcode.CreationTime.HasExceeded(_validatedRequest.Client.AuthorizationCodeLifetime, TimeProvider.GetUtcNow().UtcDateTime))
             {
                 LogError("Authorization code is expired");
                 return Invalid(OidcConstants.TokenErrors.InvalidGrant);
