@@ -1,4 +1,4 @@
-# .NET 6.0 Port of IdentityServer4
+# .NET 8.0 Port of IdentityServer4
 Once a new tag is created, NuGet packages are automatically added to a release as an asset. Packages are to be uploaded manually to whathever package hosting server you please - Nexus, etc.
 
 ## Important update from the original creators
